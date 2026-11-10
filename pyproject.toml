@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fretscribe"
+version = "0.1.0"
+description = "Turn a guitar video or recording into tablature (ASCII tab + MusicXML)."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = [
+  "numpy",
+  "scipy",
+  "librosa>=0.10",
+  "soundfile",
+  "flask>=3",
+  "onnxruntime",
+  # basic-pitch's own dependency list pins TensorFlow; we only need its ONNX model,
+  # so it is installed separately with --no-deps (see README). These are what it imports:
+  "pretty-midi",
+  "mir-eval",
+  "resampy",
+  "scikit-learn",
+]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[project.scripts]
+fretscribe = "fretscribe.cli:main"
+
+[tool.setuptools]
+packages = ["fretscribe"]
+
+[tool.setuptools.package-data]
+fretscribe = ["templates/*.html"]

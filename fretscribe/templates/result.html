@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block body %}
+<h1>{{ name }}</h1>
+<p class="sub">{{ res.note_count }} notes · ~{{ res.bpm }} BPM · model: {{ res.backend }}</p>
+<div class="actions">
+  <a class="btn" href="/download/{{ job }}/tab?name={{ name|urlencode }}">Download tab (.txt)</a>
+  <a class="btn secondary" href="/download/{{ job }}/musicxml?name={{ name|urlencode }}">MusicXML (Guitar Pro / MuseScore)</a>
+  <a class="btn secondary" href="/download/{{ job }}/json?name={{ name|urlencode }}">Notes (.json)</a>
+  <a class="btn secondary" href="/">Transcribe another</a>
+</div>
+<pre class="tab">{{ res.tab }}</pre>
+{% endblock %}

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fretscribe</title>
+<style>
+  :root { --bg:#f6f4ef; --fg:#1d1b18; --muted:#6b665d; --card:#fff; --line:#e2ddd3; --accent:#b4501f; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#16151a; --fg:#ece8e1; --muted:#9a948a; --card:#201f25; --line:#33313a; --accent:#e9844f; }
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.5 system-ui, sans-serif; }
+  main { max-width: 960px; margin: 0 auto; padding: 32px 16px 64px; }
+  h1 { font-size: 28px; margin: 0 0 4px; letter-spacing: -0.02em; }
+  .sub { color: var(--muted); margin: 0 0 24px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:20px; }
+  label { display:block; font-size:14px; color:var(--muted); margin-bottom:4px; }
+  .grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap:16px; margin:16px 0; }
+  input, select { width:100%; padding:8px 10px; border-radius:8px; border:1px solid var(--line);
+                  background:var(--bg); color:var(--fg); font:inherit; }
+  input[type=range] { padding:0; }
+  button, .btn { background:var(--accent); color:#fff; border:0; border-radius:8px; padding:10px 18px;
+                 font:inherit; font-weight:600; cursor:pointer; text-decoration:none; display:inline-block; }
+  .btn.secondary { background:transparent; color:var(--accent); border:1px solid var(--accent); }
+  .drop { border:2px dashed var(--line); border-radius:12px; padding:28px; text-align:center; }
+  .error { background:#fde8e0; color:#7a2a0c; padding:12px; border-radius:8px; margin-bottom:16px; }
+  pre.tab { overflow-x:auto; font:13px/1.35 ui-monospace, Menlo, Consolas, monospace;
+            background:var(--card); border:1px solid var(--line); border-radius:12px; padding:16px; }
+  .actions { display:flex; gap:8px; flex-wrap:wrap; margin:16px 0; }
+  .meta { color:var(--muted); font-size:14px; }
+  #busy { display:none; margin-top:12px; color:var(--muted); }
+</style>
+</head>
+<body><main>{% block body %}{% endblock %}</main></body>
+</html>
